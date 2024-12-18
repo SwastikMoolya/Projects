@@ -7,6 +7,7 @@
     <title>Swastik</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -19,20 +20,27 @@
             <nav>
                 <button id="toggle-btn"><i class="fa-solid fa-bars"></i></button>
                 <div class="nav-links">
-                    <button id="close"><i class="fa-solid fa-xmark"></i></button>
                     <a href="index.html">Home</a>
                     <a href="resume.html">Resume</a>
                     <a href="biodata.html">Bio data</a>
                 </div>
             </nav>
         </header>
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <a href="index.html">Home</a>
+            <a href="resume.html">Resume</a>
+            <a href="biodata.html">Bio data</a>
+        </div>
+
         <main>
             <div class="pfp">
                 <img src="img/pfp.jpg" alt="Profile">
             </div>
             <div class="content">
                 <h3>Hi, 👋</h3>
-                <h1>I'm <span style="color: var(--accent)">Swastik Moolya</span></h1>
+                <h1>I'm <span class="accent">Swastik Moolya</span></h1>
                 <p>As a Computer Science and Engineering student, I thrive on tackling complex challenges using innovative technology. With a strong grasp of programming languages such as Python, Java, and C++, I am enthusiastic about contributing to meaningful projects and continuously advancing my skills in the tech domain.</p>
                 <div class="btn-group">
                     <a href="files/Resume.pdf" download>Download Resume</a>
@@ -46,46 +54,53 @@
             </div>
         </main>
     </section>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-        let navLinks = document.querySelectorAll('.nav-link');
+            let navLinks = document.querySelectorAll('.nav-links a');
+            let toggleBtn = document.querySelector('#toggle-btn');
+            let navbar = document.querySelector('.nav-links');
+            let sidebarLinks = document.querySelectorAll('#sidebar a');
 
-        // Highlight the active page when it loads
-        let currentPage = window.location.pathname.split('/').pop(); // Get the current page name
-        navLinks.forEach(link => {
-            // Check if the link's href matches the current page
-            if (link.getAttribute('href') === currentPage) {
-                link.classList.add('active');
-            }
-        });
+            // Highlight active link based on the current page
+            let currentPage = window.location.pathname.split('/').pop();
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
 
-        // Toggle active class when a link is clicked
-        navLinks.forEach(link => {
-            link.addEventListener('click', function () {
-                // Remove 'active' class from all links
-                navLinks.forEach(navLink => navLink.classList.remove('active'));
+            sidebarLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
 
-                // Add 'active' class to the clicked link
-                this.classList.add('active');
+            // Add active class on click for the links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    navLinks.forEach(navLink => navLink.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    sidebarLinks.forEach(sidebarLink => sidebarLink.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // Toggle navbar visibility (for mobile)
+            toggleBtn.addEventListener('click', () => {
+                navbar.classList.toggle('active');
+                document.getElementById('sidebar').classList.toggle('active');  // Toggle sidebar on mobile
             });
         });
 
-        let toggleBtn = document.querySelector('#toggle-btn');
-        let closeBtn = document.querySelector('#close');
-        let navbar = document.querySelector('.nav-links');
-
-        toggleBtn.addEventListener('click', () => {
-            navbar.classList.toggle('active');
-        });
-
-        closeBtn.addEventListener('click', () => {
-            navbar.classList.remove('active');
-        });
-    });
         window.addEventListener('load', function() {
-        document.body.classList.add('loaded');
-    });
-
+            document.body.classList.add('loaded');
+        });
     </script>
 </body>
 
