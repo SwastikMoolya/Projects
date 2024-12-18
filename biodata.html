@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bio Data</title>
+    <link rel="stylesheet" href="biodata.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+</head>
+
+<body>
+    <section class="wrapper">
+        <header>
+            <div class="logo">
+                <i class="fa-solid fa-s"></i>
+                <div class="logo-text">Swastik Moolya</div>
+            </div>
+            <nav>
+                <button id="toggle-btn"><i class="fa-solid fa-bars"></i></button>
+                <div class="nav-links">
+                    <button id="close"><i class="fa-solid fa-xmark"></i></button>
+                    <a href="index.html">Home</a>
+                    <a href="resume.html">Resume</a>
+                    <a href="#">Bio data</a>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <h1>Personal Details</h1>
+            <ul>
+                <li>Name : Swastik Moolya</li>
+                <li>Father's Name: Poovappa</li>
+                <li>Mother's Name: Umavati</li>
+                <li>Date Of Birth: 3rd Aug 2004</li>
+                <li>Address: Nityananda Nilaya Perjal, Karimanel Post, Belthangady, DK, Karnataka, India</li>
+                <li>Contact: +91 8123088275</li>
+            </ul>
+            <h1>Languages Known</h1>
+            <ul>
+                <li>Kannada</li>
+                <li>Tulu</li>
+                <li>English</li>
+                <li>Hindi</li>
+            </ul>
+            <h1>Hobbies</h1>
+            <ul>
+                <li>Reading</li>
+                <li>Sketching</li>
+                <li>Exploring new things</li>
+            </ul>
+        </main>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        let navLinks = document.querySelectorAll('.nav-link');
+
+        // Highlight the active page when it loads
+        let currentPage = window.location.pathname.split('/').pop(); // Get the current page name
+        navLinks.forEach(link => {
+            // Check if the link's href matches the current page
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            }
+        });
+
+        // Toggle active class when a link is clicked
+        navLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                // Remove 'active' class from all links
+                navLinks.forEach(navLink => navLink.classList.remove('active'));
+
+                // Add 'active' class to the clicked link
+                this.classList.add('active');
+            });
+        });
+
+        let toggleBtn = document.querySelector('#toggle-btn');
+        let closeBtn = document.querySelector('#close');
+        let navbar = document.querySelector('.nav-links');
+
+        toggleBtn.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            navbar.classList.remove('active');
+        });
+    });
+    window.addEventListener('load', function() {
+        document.body.classList.add('loaded');
+    });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+:root {
+    --bg: #1e1e2f;
+    --txt-clr: #e0e0f8;
+    --primary: #3e64ff;
+    --secondary: #db4a4a;
+    --shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    --transition: all 0.3s ease-in-out;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--txt-clr);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+.wrapper {
+    max-width: 1100px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo i {
+    width: 45px;
+    height: 45px;
+    font-size: 2rem;
+    background: var(--primary);
+    color: var(--txt-clr);
+    padding: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+header .logo .logo-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--txt-clr);
+}
+
+#toggle-btn {
+    display: none;
+    font-size: 1.8rem;
+    background: transparent;
+    border: none;
+    color: var(--txt-clr);
+    cursor: pointer;
+}
+
+#close {
+    display: none;
+    font-size: 1.8rem;
+    background: transparent;
+    border: none;
+    color: var(--txt-clr);
+    cursor: pointer;
+}
+
+header nav .nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+header nav .nav-links a {
+    text-decoration: none;
+    color: var(--txt-clr);
+    padding: 10px 15px;
+    border: 1px solid var(--primary);
+    transition: var(--transition);
+}
+
+header nav .nav-links a.active {
+    background: var(--primary);
+    color: var(--bg);
+}
+
+header nav .nav-links a:hover {
+    background: var(--primary);
+    color: var(--bg);
+}
+
+main {
+    background: #2a2a3e;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    padding: 20px;
+    margin-top: 20px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+main .top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+main .top .personal-info h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+main .top .personal-info h3 {
+    font-weight: 400;
+    font-size: 1rem;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+}
+
+main .top .personal-info h3 i {
+    margin-right: 8px;
+    color: var(--secondary);
+}
+
+main .top .pfp {
+    width: 120px;
+    height: 140px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid var(--primary);
+}
+
+main .top .pfp img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+section h1 {
+    font-size: 1.5rem;
+    color: var(--primary);
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+section ul, section table {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+section table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+section table th, section table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid var(--txt-clr);
+}
+
+section ul li {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    #toggle-btn {
+        display: block;
+    }
+
+    header nav .nav-links {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        background: var(--bg);
+        height: 100%;
+        width: 250px;
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+        transition: var(--transition);
+        box-shadow: var(--shadow);
+    }
+
+    header nav .nav-links.active {
+        right: 0;
+    }
+
+    #close {
+        display: block;
+        align-self: flex-end;
+    }
+
+    main .top {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    main section table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}

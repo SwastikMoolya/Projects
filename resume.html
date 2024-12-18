@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Swastik Moolya</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <link rel="stylesheet" href="resume.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="logo">
+                <i class="fa-solid fa-s"></i>
+                <div class="logo-text">Swastik Moolya</div>
+            </div>
+            <nav>
+                <button id="toggle-btn"><i class="fa-solid fa-bars"></i></button>
+                <div class="nav-links">
+                    <button id="close"><i class="fa-solid fa-xmark"></i></button>
+                    <a href="index.html" class="nav-link" data-page="home">Home</a>
+                    <a href="resume.html" class="nav-link" data-page="resume">Resume</a>
+                    <a href="biodata.html" class="nav-link" data-page="biodata">Bio data</a>
+                </div>
+            </nav>            
+        </header>
+        <main>
+            <div class="top">
+                <div class="personal-info">
+                    <h1>Swastik Moolya</h1>
+                    <h3>
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>swastikm2004@gmail.com</span>
+                    </h3>
+                    <h3>
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+91 8123088276</span>
+                    </h3>
+                    <h3>
+                        <i class="fa-brands fa-linkedin"></i>
+                        <span><a href="https://www.linkedin.com/in/swastik-moolya-519957295/" target="_blank">LinkedIn Profile</a></span>
+                    </h3>
+                    <h3>
+                        <i class="fa-brands fa-github"></i>
+                        <span><a href="https://github.com/SwastikMoolya" target="_blank">GitHub Profile</a></span>
+                    </h3>
+                    <h3>Nityananda Nilaya Perjal, Karimanel Post, Belthangady, DK, Karnataka, India</h3>
+                </div>
+                <div class="pfp">
+                    <img src="img/pfp.jpg" alt="Profile Picture">
+                </div>
+            </div>
+            <section>
+                <h1>SUMMARY</h1>
+                <p>Dedicated Computer Science and Engineering graduate with a strong passion for programming, logical thinking, and problem-solving. Quick to learn and adapt, with hands-on experience in developing software solutions. Deeply interested in the computer science field and eager to begin a career as a software engineer, ready to tackle challenging development roles.</p>
+
+                <h1>EDUCATION</h1>
+                <table class="edu">
+                    <tr>
+                        <th>B.E - Computer Science & Engineering</th>
+                        <td>Mangalore Institute of Technology & Engineering</td>
+                        <td>2020 - 2026</td>
+                        <td>CGPA: 9.2</td>
+                    </tr>
+                    <tr>
+                        <th>Senior Secondary (12th)</th>
+                        <td>Govt. PU College, Venur</td>
+                        <td>2020 - 2022</td>
+                        <td>Percentage: 97%</td>
+                    </tr>
+                    <tr>
+                        <th>Secondary School (SSLC)</th>
+                        <td>Kumbhashree English Medium Residential School</td>
+                        <td>2019 - 2020</td>
+                        <td>Percentage: 96.16%</td>
+                    </tr>
+                </table>
+
+                <h1>SKILLS</h1>
+                <table>
+                    <tr>
+                        <th>Languages</th>
+                        <td>C, Java, Python</td>
+                    </tr>
+                    <tr>
+                        <th>Interfaces</th>
+                        <td>HTML, CSS</td>
+                    </tr>
+                    <tr>
+                        <th>Database</th>
+                        <td>SQL</td>
+                    </tr>
+                    <tr>
+                        <th>Tools</th>
+                        <td>Visual Studio Code</td>
+                    </tr>
+                </table>
+
+                <h1>INTERNSHIPS</h1>
+                <div class="internship">
+                    <h3>
+                        <span>Python Programming | InternPE</span>
+                        <span>September 2024 - October 2024</span>
+                    </h3>
+                    <p>Technologies: Python, PyCharm</p>
+                    <ul>
+                        <li>Successfully completed a Python programming internship, focusing on interactive application and game development.</li>
+                        <li>Created projects like a digital clock, snake game, and Connect 4 game, leveraging Python and Pygame.</li>
+                        <li>Strengthened problem-solving and teamwork skills through real-world, collaborative projects.</li>
+                    </ul>
+                </div>
+
+                <h1>COURSES & VIRTUAL EXPERIENCE PROGRAMS</h1>
+                <ul>
+                    <li>Course Circuit Simulation Onramp on MATLAB</li>
+                    <li>HTML Web Development Crash Course by Infosys Springboard</li>
+                    <li>Practical HTML CSS by Infosys Springboard</li>
+                </ul>
+
+                <h1>TECHNICAL ACTIVITIES & ACHIEVEMENTS</h1>
+                <ul>
+                    <li>Winners in the Hack Heist 2.0 organized by MITE, 2024</li>
+                    <li>2nd Runner-up in Hack Heist organized by MITE, 2023</li>
+                    <li>Participated in Code Relay-2024 organized by CSI MITE student branch</li>
+                    <li>Participated in Flipkart GRID 6.0 hackathon</li>
+                </ul>
+
+                <h1>HOBBIES</h1>
+                <ul>
+                    <li>Portrait Sketching</li>
+                    <li>Reading Books</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        let navLinks = document.querySelectorAll('.nav-link');
+
+        // Highlight the active page when it loads
+        let currentPage = window.location.pathname.split('/').pop(); // Get the current page name
+        navLinks.forEach(link => {
+            // Check if the link's href matches the current page
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            }
+        });
+
+        // Toggle active class when a link is clicked
+        navLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                // Remove 'active' class from all links
+                navLinks.forEach(navLink => navLink.classList.remove('active'));
+
+                // Add 'active' class to the clicked link
+                this.classList.add('active');
+            });
+        });
+
+        let toggleBtn = document.querySelector('#toggle-btn');
+        let closeBtn = document.querySelector('#close');
+        let navbar = document.querySelector('.nav-links');
+
+        toggleBtn.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            navbar.classList.remove('active');
+        });
+    });
+    window.addEventListener('load', function() {
+        document.body.classList.add('loaded');
+    });
+
+    </script>
+</body>
+
+</html>
