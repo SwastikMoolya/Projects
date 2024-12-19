@@ -158,6 +158,7 @@ main .top .pfp {
     height: 140px;
     border-radius: 10px;
     overflow: hidden;
+    margin: 0 auto;
     border: 2px solid var(--primary);
 }
 
